@@ -8,11 +8,22 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
+    <h3>Hi I am {{username}}</h3>
+    <ion-grid>
+        <ion-row>
+          <ion-col col-6>Email</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>{{email}}</ion-col>
+          </ion-row>
+      </ion-grid>
   <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-footer class="sideMenuFooter">
+   <ion-item>
+      <ion-avatar item-start>
+        <ion-icon name="log-out"></ion-icon>
+      </ion-avatar>
+      <span (click)="logout()">Logout</span>
+    </ion-item>
+  </ion-footer>
 </ion-content>

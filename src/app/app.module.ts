@@ -5,15 +5,32 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
+import  { LogPage } from '../pages/login/login';
+import{ RegisterPage } from '../pages/register/register';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { GooglePlus } from '@ionic-native/google-plus';
+// Initialize Firebase
+import * as firebase from 'firebase'
+ 
+ var config = {
+  apiKey: "AIzaSyCqrVDzXxxeslQYhFtL1IJ9j_7GSyiK0pM",
+  authDomain: "sidemenu-f3023.firebaseapp.com",
+  databaseURL: "https://sidemenu-f3023.firebaseio.com",
+  projectId: "sidemenu-f3023",
+  storageBucket: "sidemenu-f3023.appspot.com",
+  messagingSenderId: "370442120524"
+};
+firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LogPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -23,11 +40,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LogPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen,Facebook,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
